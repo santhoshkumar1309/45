@@ -140,57 +140,41 @@ export default function Home() {
       </section>
 
       {/* Quick Overview */}
-      <section className="py-15">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Welcome to <span className="gradient-text">Evai Technologies</span>
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              We are a leading technology company specializing in innovative IT solutions, artificial intelligence,
-              machine learning, and cloud computing services. Our mission is to help businesses leverage cutting-edge
-              technology to achieve their goals and stay ahead in the digital landscape.
-            </p>
-          </motion.div>
+   <section className="py-16">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center max-w-3xl mx-auto mb-16"
+    >
+      <h2 className="text-2xl md:text-4xl font-bold mb-6">
+        Welcome to <span className="gradient-text">Evai Technologies</span>
+      </h2>
+      <p className="text-base md:text-lg text-muted-foreground">
+        We are a leading technology company specializing in innovative IT solutions,
+        artificial intelligence, machine learning, and cloud computing services.
+      </p>
+    </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-lg p-6 shadow-sm border"
-            >
-              <h3 className="text-xl font-semibold mb-4">Our Vision</h3>
-              <p className="text-muted-foreground">
-                To be the global leader in providing innovative technology solutions that empower businesses to thrive
-                in the digital era. We envision a world where technology enhances human potential and drives sustainable
-                growth.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-card rounded-lg p-6 shadow-sm border"
-            >
-              <h3 className="text-xl font-semibold mb-4">Our Approach</h3>
-              <p className="text-muted-foreground">
-                We combine technical expertise with a deep understanding of business needs to deliver solutions that
-                drive real value. Our collaborative approach ensures that we work closely with clients to understand
-                their unique challenges and develop tailored solutions.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Card Example */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="bg-card rounded-xl p-6 shadow-sm border text-center md:text-left"
+      >
+        <h3 className="text-lg md:text-xl font-semibold mb-4">Our Vision</h3>
+        <p className="text-sm md:text-base text-muted-foreground">
+          To be the global leader in providing innovative technology solutions that
+          empower businesses to thrive in the digital era.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Services Section */}
       <section ref={servicesRef} className="py-20 bg-muted/30">
