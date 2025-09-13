@@ -6,22 +6,27 @@ import { MessageSquare, X, Send } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import ReactMarkdown from "react-markdown"
 
+type Message = {
+  role: "user" | "bot"
+  content: string
+}
+
 export default function ChatbotButton() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState([
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+  const [messages, setMessages] = useState<Message[]>([
     { role: "bot", content: "Hi there! How can I help you today?" },
   ])
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState<string>("")
 
-  const quickOptions = [
+  const quickOptions: string[] = [
     "About Evai Technologies",
     "Services",
     "Contact Info",
     "Social Media",
   ]
 
-  const handleSend = async (userMessage) => {
-    if (!userMessage?.trim()) return
+  const handleSend = async (userMessage: string) => {
+    if (!userMessage.trim()) return
 
     setMessages((prev) => [...prev, { role: "user", content: userMessage }])
     setInput("")
@@ -33,17 +38,14 @@ export default function ChatbotButton() {
         body: JSON.stringify({ message: userMessage }),
       })
 
-      const data = await res.json()
+      const data: { reply: string } = await res.json()
 
-      setMessages((prev) => [
-        ...prev,
-        { role: "bot", content: data.reply },
-      ])
+      setMessages((prev) => [...prev, { role: "bot", content: data.reply }])
     } catch (err) {
       console.error(err)
       setMessages((prev) => [
         ...prev,
-        { role: "bot", content: "we will get back you soon." },
+        { role: "bot", content: "We will get back to you soon." },
       ])
     }
   }
@@ -97,9 +99,7 @@ export default function ChatbotButton() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   className={`mb-4 ${
-                    message.role === "user"
-                      ? "flex justify-end"
-                      : "flex justify-start"
+                    message.role === "user" ? "flex justify-end" : "flex justify-start"
                   }`}
                 >
                   <div
