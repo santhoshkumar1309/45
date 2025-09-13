@@ -24,12 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
+<ThemeProvider
+  attribute="class"
+  defaultTheme="light"
+  disableTransitionOnChange
+>
           <DarkModeEffect />
           <div className="flex min-h-screen flex-col">
             <Header />
