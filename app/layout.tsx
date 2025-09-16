@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   title: "Evai Technologies | Innovating the Future with Technology",
   description: "Leading provider of IT solutions, AI/ML services, and cloud computing solutions.",
   generator: "v0.dev",
+  icons: {
+    icon: "/evai-logo.ico", // 👈 place your logo here (in /public folder)
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png", // optional for iOS homescreen
+  },
 }
 
 export default function RootLayout({
@@ -24,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-<ThemeProvider
+     <ThemeProvider
   attribute="class"
   defaultTheme="light"
   disableTransitionOnChange
